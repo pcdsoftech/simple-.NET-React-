@@ -1,0 +1,29 @@
+# Ignore vendor directory
+/vendor
+# Ignore node_modules directory
+/node_modules
+# Ignore .env files
+.env
+.env.*
+!.env.example
+# Ignore Docker files
+Dockerfile
+Dockerfile.*
+docker-compose.*
+# Ignore Git related files
+.git
+.gitignore
+# Ignore IDE related files
+.idea
+.vscode
+# Ignore logs
+/storage/logs/*
+# Ignore testing files
+/tests
+phpunit.xml
+# Ignore build assets
+/public/hot
+/public/storage
+# Ignore system files
+.DS_Store
+Thumbs.db 
