@@ -18,11 +18,15 @@ const MainLayout: React.FC<MainLayoutProps> = ({
   showBackButton = true,
   backUrl = '/'
 }) => {
-  const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
+  // Sidebar closed by default on mobile
+  const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
+
+  // Function to close sidebar (for overlay/menu item click)
+  const handleCloseSidebar = () => setSidebarOpen(false);
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
+      <Header onToggleSidebar={() => setSidebarOpen(true)} />
 
       {showBackButton && (
         <div className="mt-5 px-5 text-gray-600 text-sm">
@@ -36,10 +40,10 @@ const MainLayout: React.FC<MainLayoutProps> = ({
         <Sidebar
           open={sidebarOpen}
           onToggle={() => setSidebarOpen(!sidebarOpen)}
-          onClose={() => setSidebarOpen(false)}
+          onClose={handleCloseSidebar}
         />
 
-        <main className="flex-1 p-4 md:py-5 md:mr-[60px]">
+        <main className="flex-1 pt-4 px-2 sm:px-4 md:py-5">
           <div className="max-w-4xl w-full mx-auto">
             <h1 className="text-xl md:text-2xl font-bold mb-3 pb-3">
               {title}

@@ -71,8 +71,8 @@ const Header: React.FC<HeaderProps> = () => {
         className={`fixed top-0 left-0 h-full w-[280px] bg-white z-50 transform transition-transform duration-300 ease-in-out lg:hidden ${drawerOpen ? 'translate-x-0' : '-translate-x-full'
           }`}
       >
-        <div className="flex items-center justify-between p-4 border-b">
-          <h2 className="font-bold text-xl">Menu</h2>
+        <div className="flex items-center justify-between p-4 border-b dark:bg-gray-900">
+          <h2 className="font-bold text-xl dark:hover:bg-gray-800 text-gray-700 dark:text-white">Menu</h2>
           <button
             onClick={() => setDrawerOpen(false)}
             className="p-2 rounded-full hover:bg-gray-100"
@@ -80,13 +80,13 @@ const Header: React.FC<HeaderProps> = () => {
             <FontAwesomeIcon icon={faXmark} size="lg" />
           </button>
         </div>
-        <nav className="flex flex-col p-4">
+        <nav className="flex flex-col p-4 bg-white dark:bg-gray-900">
           {navItems.map((item, idx) => (
             <a
               href="#"
               key={idx}
               onClick={() => setDrawerOpen(false)}
-              className="py-3 px-2 border-b border-gray-100 hover:bg-gray-50 text-gray-700"
+              className="py-3 px-2 border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-white"
             >
               {item}
             </a>
