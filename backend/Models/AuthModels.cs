@@ -32,12 +32,12 @@ namespace AuthBackend.Models
     {
         [Required(ErrorMessage = "Email is required")]
         [EmailAddress(ErrorMessage = "Invalid email address")]
-        public required string Email { get; set; }
+        public required string email { get; set; }
 
         [Required(ErrorMessage = "Current password is required")]
-        public required string CurrentPassword { get; set; }
+        public required string currentPassword { get; set; }
 
         [Required(ErrorMessage = "New password is required")]
-        public required string NewPassword { get; set; }
+        public required string newPassword { get; set; }
     }
 } 

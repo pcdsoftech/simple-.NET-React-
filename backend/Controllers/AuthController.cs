@@ -90,6 +90,8 @@ namespace AuthBackend.Controllers
         [Authorize]
         public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordModel model)
         {
+            Console.WriteLine(model.currentPassword);
+            Console.WriteLine(model.newPassword);
             if (!ModelState.IsValid)
             {
                 return BadRequest(new { Status = "Error", Message = "Invalid input", Errors = ModelState.Values.SelectMany(v => v.Errors) });

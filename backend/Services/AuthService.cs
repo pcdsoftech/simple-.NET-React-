@@ -49,13 +49,13 @@ namespace AuthBackend.Services
 
         public async Task<IdentityResult> ChangePasswordAsync(ChangePasswordModel model)
         {
-            var user = await _userManager.FindByEmailAsync(model.Email);
+            var user = await _userManager.FindByEmailAsync(model.email);
             if (user == null)
             {
                 return IdentityResult.Failed(new IdentityError { Description = "User not found" });
             }
 
-            return await _userManager.ChangePasswordAsync(user, model.CurrentPassword, model.NewPassword);
+            return await _userManager.ChangePasswordAsync(user, model.currentPassword, model.newPassword);
         }
 
         private async Task<string> GenerateJwtTokenAsync(ApplicationUser user)

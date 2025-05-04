@@ -4,6 +4,7 @@ import { faQuestion, faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { ChevronDown } from 'lucide-react';
 import { faBell } from '@fortawesome/free-regular-svg-icons';
 import { mockUser } from '../../types/user';
+import ThemeToggle from '../ui/ThemeToggle';
 
 type HeaderProps = {
   onToggleSidebar: () => void;
@@ -93,90 +94,26 @@ const Header: React.FC<HeaderProps> = () => {
         </nav>
       </div>
 
-      <header className="bg-white h-16 shadow-sm">
-        <div className="px-4 md:pl-[70px]">
-          <div className="flex items-center justify-between h-16">
-            {/* Mobile: Menu button and centered logo */}
-            <div className="flex lg:hidden items-center justify-between w-full">
+      <header className="bg-white dark:bg-gray-800 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center">
               <button
                 onClick={() => setDrawerOpen(true)}
-                className="p-2 rounded-full hover:bg-gray-100"
-                aria-label="Open menu"
+                className="p-2 rounded-md text-gray-500 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300"
               >
-                <FontAwesomeIcon icon={faBars} size="lg" />
+                <FontAwesomeIcon icon={faBars} className="h-6 w-6" />
               </button>
-
-              <div className="mx-auto">
-                <a href="/" className="font-bold text-xl md:text-2xl whitespace-nowrap">
-                  Staff Hub
-                </a>
-              </div>
-
-              {/* Invisible element to balance the flex space */}
-              <div className="w-8"></div>
             </div>
 
-            {/* Desktop: Original layout */}
-            <div className="hidden lg:flex items-center space-x-2 md:gap-[70px] gap-[30px]">
-              <div className="flex items-center">
-                <a href="/" className="font-bold text-xl md:text-2xl flex-1">
-                  Staff Hub
-                </a>
-              </div>
-
-              <div className="relative" ref={dropdownRef}>
-                <button
-                  onClick={() => setOpen(!open)}
-                  className="lg:hidden flex items-center gap-1 px-4 py-2 bg-gray-100 
-                  text-sm rounded hover:bg-gray-200"
-                >
-                  Home
-                  <ChevronDown
-                    className={`w-4 h-4 transition-transform ${open ? 'rotate-180' : ''}`}
-                  />
-                </button>
-                {open && (
-                  <div className="absolute left-0 top-full mt-2 w-48 bg-white 
-                  shadow-lg rounded border z-10">
-                    <nav className="flex flex-col p-2 text-sm text-gray-700">
-                      {navItems.map((item, idx) => (
-                        <a
-                          href="#"
-                          key={idx}
-                          onClick={() => setOpen(false)}
-                          className="block px-3 py-2 hover:bg-gray-100"
-                        >
-                          {item}
-                        </a>
-                      ))}
-                    </nav>
-                  </div>
-                )}
-              </div>
-
-              <nav className="hidden lg:flex space-x-6 text-sm text-gray-600">
-                <a href="#" className="hover:text-black">Home</a>
-                {navItems.slice(1).map((item, idx) => (
-                  <a href="#" key={idx} className="hover:text-black">{item}</a>
-                ))}
-              </nav>
-            </div>
-
-            {/* Right: User controls (visible on all screen sizes) */}
-            <div className="hidden lg:flex items-center space-x-4">
-              <a href="#">
-                <FontAwesomeIcon icon={faQuestion} size="lg" className="text-gray-500" />
-              </a>
-              <a href="#">
-                <FontAwesomeIcon icon={faBell} size="lg" className="text-gray-500" />
-              </a>
-              <a href="#">
-                <img
-                  src={mockUser.avatar}
-                  alt={`${mockUser.name}'s avatar`}
-                  className="w-10 rounded-full border-2 border-white shadow"
-                />
-              </a>
+            <div className="flex items-center space-x-4">
+              <ThemeToggle />
+              <button className="p-2 rounded-md text-gray-500 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300">
+                <FontAwesomeIcon icon={faBell} className="h-6 w-6" />
+              </button>
+              <button className="p-2 rounded-md text-gray-500 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300">
+                <FontAwesomeIcon icon={faQuestion} className="h-6 w-6" />
+              </button>
             </div>
           </div>
         </div>

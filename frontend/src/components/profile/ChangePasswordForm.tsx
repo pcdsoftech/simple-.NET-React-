@@ -93,48 +93,50 @@ const ChangePasswordForm: React.FC<ChangePasswordFormProps> = ({ onCancel }) => 
   }, [validateForm, currentPassword, newPassword, confirmPassword, showToast, onCancel, user]);
 
   return (
-    <form className="space-y-4" onSubmit={handleSubmit}>
-      <Input
-        type="password"
-        placeholder="Enter current password"
-        value={currentPassword}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCurrentPassword(e.target.value)}
-        label="Current password"
-        error={errors.current}
-        disabled={isSubmitting}
-      />
-      <Input
-        type="password"
-        placeholder="Enter new password"
-        value={newPassword}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNewPassword(e.target.value)}
-        label="New password"
-        error={errors.new_password}
-        disabled={isSubmitting}
-      />
-      <Input
-        type="password"
-        placeholder="Confirm new password"
-        value={confirmPassword}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setConfirmPassword(e.target.value)}
-        label="Confirm new password"
-        error={errors.confirm}
-        disabled={isSubmitting}
-      />
-      <div className="flex space-x-2">
-        <Button
-          type="button"
-          className="bg-gray-300 text-black hover:bg-gray-400"
-          onClick={onCancel}
+    <div className="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">
+      <form className="space-y-4" onSubmit={handleSubmit}>
+        <Input
+          type="password"
+          placeholder="Enter current password"
+          value={currentPassword}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCurrentPassword(e.target.value)}
+          label="Current password"
+          error={errors.current}
           disabled={isSubmitting}
-        >
-          Cancel
-        </Button>
-        <Button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? 'Changing...' : 'Change password'}
-        </Button>
-      </div>
-    </form>
+        />
+        <Input
+          type="password"
+          placeholder="Enter new password"
+          value={newPassword}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNewPassword(e.target.value)}
+          label="New password"
+          error={errors.new_password}
+          disabled={isSubmitting}
+        />
+        <Input
+          type="password"
+          placeholder="Confirm new password"
+          value={confirmPassword}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setConfirmPassword(e.target.value)}
+          label="Confirm new password"
+          error={errors.confirm}
+          disabled={isSubmitting}
+        />
+        <div className="flex space-x-2">
+          <Button
+            type="button"
+            className="bg-gray-300 text-black hover:bg-gray-400"
+            onClick={onCancel}
+            disabled={isSubmitting}
+          >
+            Cancel
+          </Button>
+          <Button type="submit" disabled={isSubmitting}>
+            {isSubmitting ? 'Changing...' : 'Change password'}
+          </Button>
+        </div>
+      </form>
+    </div>
   );
 };
 

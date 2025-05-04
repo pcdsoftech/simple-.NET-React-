@@ -40,12 +40,13 @@ const MainLayout: React.FC<MainLayoutProps> = ({
         />
 
         <main className="flex-1 p-4 md:py-5 md:mr-[60px]">
-          <h1 className="text-xl md:text-2xl font-bold mb-3 md:pl-[50px] lg:pl-0 pb-3">
-            {title}
-          </h1>
-
-          <div className="space-y-4 md:space-y-8 md:pl-[50px]">
-            {children}
+          <div className="max-w-4xl w-full mx-auto">
+            <h1 className="text-xl md:text-2xl font-bold mb-3 pb-3">
+              {title}
+            </h1>
+            <div className="space-y-6">
+              {children}
+            </div>
           </div>
         </main>
       </div>
